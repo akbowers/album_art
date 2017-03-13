@@ -32,7 +32,8 @@ def write_to_file_and_save_to_server(filename, popular_genre_names):
                 img_count = hit_number + 1
                 img_num = '%03d'%img_count #make it a 3-digit number with leading zeros
                 print 'saving', image_url, 'on server'
-                path = server_path + genre + img_num + '.jpg'
+                album_id = album_details['album_id']
+                path = server_path + genre + album_id + '.jpg'
                 if not check_duplicate(path): #Does itunes classify some albums as multiple genres?
                 #In particular, do subgenres create duplicates??
                     urllib.urlretrieve(image_url, path) #download images onto server
@@ -50,7 +51,7 @@ def get_img_url(text):
     else:
         return 'No image found'
 
-def check_duplicate(album_details, album_ids):
+def check_duplicate(path):
     return os.path.exists(path)
 
 def get_album_details(album):
