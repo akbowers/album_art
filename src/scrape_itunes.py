@@ -19,6 +19,41 @@ class Scrape(object):
         else:
             return 'No image found'
 
+    def find_unicode_error_char(self, genre):
+        '''
+            renames genres by removing any chars that are not able to be saved as dir names on s3
+        '''
+        #genre = genre.decode('utf-8')
+
+        m_col = re.search(':', genre)
+        if m_col:
+            genre = re.sub(m_col.group(), '', genre)
+
+        # m_apos = re.search("''", genre)
+        # if m_apos:
+        #     genre = re.sub(m_apos.group(), '', genre)
+        #
+        # m_apos2 = re.search('\xe2\x80\x99', genre)
+        # if m_apos2:
+        #     genre = re.sub(m_apos2.group(), '', genre)
+        #
+        # m_e = re.search( '', genre)
+        # if m_e:
+        #     genre = re.sub(m_e.group(), 'e' , genre)
+        #
+        # m_o = re.search( '', genre)
+        #     if m_o:
+        #         genre = re.sub(m_o.group, 'o', genre)
+
+        m_space = re.search(' ', genre)
+        if m_space:
+            genre = re.sub(m_space.group(), '_', genre)
+
+        m_slash = re.search('/', genre)
+        if m_slash:
+            genre = re.sub(m_slash.group(), '_', genre)
+        return genre
+
     def get_json_results(self, search_url, genre):
         'Print executing search for', genre
         album_requests = requests.get(search_url)
@@ -42,7 +77,7 @@ class Scrape(object):
         album_details = {
             'album_id': album_id,
             'genre': genre,
-            'main genre': main_genre_name,
+            'main_genre': main_genre_name,
             'genre_id': genre_id,
             'artist': artist,
             'album': album_name,
@@ -53,12 +88,13 @@ class Scrape(object):
         return album_details
 
 def get_genre_names(filename):
+    s = Scrape()
     genre_names = {}
     with open(filename) as fhandle:
         lines = fhandle.readlines()
         for line in lines:
             info = line.split()
-            genre_id, name = int(info[0]), info[1]
+            genre_id, name = int(info[0]), s.find_unicode_error_char(info[1])
             if not line.startswith('\t'):
                 main_genre_id = genre_id
                 subgenres = {}
