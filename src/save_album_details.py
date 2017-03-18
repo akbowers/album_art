@@ -91,10 +91,14 @@ if __name__ == '__main__':
     genre_names = get_genre_names('genre_names_and_ids.tsv')
     col = create_collection()
 
+    already_collected = ['Blues', 'Childrens', 'Classical', 'Comedy', 'Country', 'Dance',
+                        'Electronic', 'Holiday', 'Jazz', 'Opera', 'Pop', 'Singer_Songwriter', 'Soundtrack']
+
     s = Scrape()
 
     for mainID in genre_names:
          subgenres = genre_names[mainID]
          main_genre_name = subgenres[mainID]
-         #main_genre_name = s.find_unicode_error_char(main_genre_name)
-         search_subgenres(main_genre_name, subgenres)
+         main_genre_name = s.find_unicode_error_char(main_genre_name)
+         if main_genre_name not in already_collected:
+             search_subgenres(main_genre_name, subgenres)
