@@ -91,8 +91,8 @@ if __name__ == '__main__':
     genre_names = get_genre_names('genre_names_and_ids.tsv')
     col = create_collection()
 
-    already_collected = ['Blues', 'Childrens', 'Classical', 'Comedy', 'Country', 'Dance',
-                        'Electronic', 'Holiday', 'Jazz', 'Opera', 'Pop', 'Singer_Songwriter', 'Soundtrack']
+    already_collected = ['Blues', 'Classical', 'Comedy', 'Country', 'Dance',
+                        'Electronic', 'Holiday', 'Opera', 'Pop', 'Singer_Songwriter', 'Soundtrack']
 
     s = Scrape()
 
