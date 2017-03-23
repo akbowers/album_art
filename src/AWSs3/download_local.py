@@ -6,15 +6,16 @@ import os
 import boto3
 from collections import defaultdict
 
-def get_files_from_bucket(limit, bucket_name):
+def get_files_from_bucket(limit, bucket_name, list_to_search):
     s3 = boto3.client('s3')
     bucket = boto3.resource('s3').Bucket(bucket_name)
     bo = bucket.objects
     genre_keys = defaultdict(list)
     for b in bo.iterator():
         genre = b.key.split('/')[0]
-        if len(genre_keys[genre]) < limit:
-            genre_keys[genre].append(b.key)
+        if genre in list_to_search:
+            if len(genre_keys[genre]) < limit:
+                genre_keys[genre].append(b.key)
 
     return genre_keys
 
