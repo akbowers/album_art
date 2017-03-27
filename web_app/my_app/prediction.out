@@ -1,0 +1,9 @@
+[ 3 11  1  0  2]
+['reggae' 'christian' 'childrens' 'dance' 'country' 'vocal' 'new' 'blues'
+ 'holiday']
+num_labels:  9
+node_id:  3
+node_id:  11
+node_id:  1
+node_id:  0
+node_id:  2
