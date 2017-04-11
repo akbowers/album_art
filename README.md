@@ -1,3 +1,7 @@
+# Albo-rithm: Predicting Genre From Album Art
+
+This repository was created for my cumulative project at Galvanize. The goal is to train a convolutional neural network on iTunes album covers for different genres. This project is currently under construction
+
 ## Business Understanding
 
 Albums are not simply a collection of music, but rather a body of art. The album cover is the piece of visual art an artist can use to most effectively grab a potential listener's attention. While the attention-grabbing effectiveness of a cover photo was absolutely crucial during the age of record stores, modern listeners are presented with more possible pathways to arrive at the purchase of a new album, such as a recommendation from iTunes, Pandora, or Spotify. These recommender systems, however, are flawed in that they make recommendations based soley on what other listeners with similar purchase histories like. The current recommender systems make no attempt to find the latent features in the audio clips of songs to generate music profiles of their listeners (although this is a current area of active research). Therefore, the album cover remains critical when marketing music to a target audience.
