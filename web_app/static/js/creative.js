@@ -46,20 +46,97 @@
     }, 300);
 
     // Initialize and Configure Magnific Popup Lightbox Plugin
-    $('.popup-gallery').magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        tLoading: 'Loading image #%curr%...',
-        mainClass: 'mfp-img-mobile',
-        gallery: {
-            enabled: true,
-            navigateByImgClick: true,
-            preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-        },
-        image: {
-            tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
-        }
+    // $('.popup-gallery').magnificPopup({
+    //     delegate: 'a',
+    //     type: 'image',
+    //     tLoading: 'Loading image #%curr%...',
+    //     mainClass: 'mfp-img-mobile',
+    //     gallery: {
+    //         enabled: true,
+    //         navigateByImgClick: true,
+    //         preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+    //     },
+    //     image: {
+    //         tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+    //     }
+    // });
+
+    //Make Pop-ups separate
+    // var groups = {};
+    // $('.galleryItem').each(function() {
+    //   var id = parseInt($(this).attr('data-group'), 10);
+    //
+    //   if(!groups[id]) {
+    //     groups[id] = [];
+    //   }
+    //
+    //   groups[id].push( this );
+    // });
+    //
+    //
+    // $.each(groups, function() {
+    //
+    //   $(this).magnificPopup({
+    //       type: 'image',
+    //       tLoading: 'Loading image #%curr%...',
+    //       mainClass: 'mfp-img-mobile',
+    //       closeOnContentClick: true,
+    //       closeBtnInside: false,
+    //       gallery: {
+    //           enabled: true,
+    //           navigateByImgClick: true,
+    //           preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+    //       },
+    //       image: {
+    //           tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+    //       }
+    //   });
+
+
+//STRAIGHT FROM WEBSITE!!
+
+    var groups = {};
+    $('.galleryItem').each(function() {
+      var id = parseInt($(this).attr('data-group'), 10);
+
+      if(!groups[id]) {
+        groups[id] = [];
+      }
+
+      groups[id].push( this );
     });
+
+
+    $.each(groups, function() {
+
+      $(this).magnificPopup({
+          type: 'image',
+          closeOnContentClick: true,
+          closeBtnInside: false,
+          gallery: { enabled:true }
+      })
+
+    });
+
+
+
+
+
+    //    delegate: 'a',
+   //     type: 'image',
+   //     tLoading: 'Loading image #%curr%...',
+   //     mainClass: 'mfp-img-mobile',
+   //     gallery: {
+   //         enabled: true,
+   //         navigateByImgClick: true,
+   //         preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+   //     },
+   //     image: {
+   //         tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+   //     }
+   // });
+
+
     //Star rating
     $(document).ready(function(){
     //  Check Radio-box

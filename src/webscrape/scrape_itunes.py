@@ -55,7 +55,7 @@ class Scrape(object):
         return genre
 
     def get_json_results(self, search_url, genre):
-        'Print executing search for', genre
+        Print 'executing search for', genre
         album_requests = requests.get(search_url)
         if 'entry' in album_requests.json()['feed']: #some of these searches produce incomplete json docs. Check to see that we have a good one
             albums = album_requests.json()['feed']['entry']
