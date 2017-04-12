@@ -118,6 +118,63 @@
 
     });
 
+    $('#open-popup').magnificPopup({
+    items: [
+      {
+        src: '#my-popup', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      },
+      {
+        src: '#my-popup2', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      },
+      {
+        src: '#my-popup3', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      },
+      {
+        src: '#my-popup4', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      },
+      {
+        src: '#my-popup5', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      },
+      {
+        src: '#my-popup6', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      },
+      {
+        src: '#my-popup7', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      },
+      {
+        src: '#my-popup8', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      },
+      {
+        src: '#my-popup9', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      },
+      {
+        src: '#my-popup10', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      },
+      {
+        src: '#my-popup11', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      },
+      {
+        src: '#my-popup12', // CSS selector of an element on page that should be used as a popup
+        type: 'inline'
+      }
+    ],
+    gallery: {
+      enabled: true
+    },
+    type: 'image' // this is a default type
+});
+
 
 
 
