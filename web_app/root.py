@@ -28,11 +28,11 @@ def training():
 
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
-    print 'in upload file'
+    print ()'in upload file')
     if request.method == 'POST':
         print 'these are your request files: ', request.files
         f = request.files['pic']
-        print 'this is f:', f
+        print ()'this is f:', f)
         img_name = secure_filename(f.filename)
         photo_name = 'tmp/' + img_name
         photo = 'static/'+photo_name
