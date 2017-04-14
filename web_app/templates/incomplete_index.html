@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Album Art Classifier - Amanda Bowers</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="static/css/grayscale.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .newspaper {
+        -webkit-column-count: 4; /* Chrome, Safari, Opera */
+        -moz-column-count: 4; /* Firefox */
+        column-count: 4;
+    }
+    </style>
+
+    <!-- Plugin CSS -->
+    <link href="static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="static/css/creative.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> <span class="light">Album Cover</span> Identification
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#training">Model/Traing</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#evaluation">Evaluation</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Album Art Classifier</h1>
+                        <p class="intro-text">A pre-trained tensorflow model to predict music genre
+                            <br>Created by Amanda Bowers</p>
+                        <a href="#training" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+
+    <!-- Training Set Section -->
+    <section id="training" class="content-section text-center">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+              <h2>About the Model/ Training Set</h2>
+              <p>This model was trained on <a href="https://www.tensorflow.org/tutorials/image_retraining"> Inception V3</a>
+                via transfer learning:</p>
+              <p><a href = "https://affiliate.itunes.apple.com/resources/documentation/genre-mapping/"> iTunes</a>
+                genres and corresponding subgenres were grouped together to create 36 image classes:</p>
+                <h3>Explore some of the artwork below:</h3>
+
+      </div>
+        <div class="training-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="no-padding" id="training">
+    <div class="container-fluid">
+        <div class="row no-gutter">
+        <!-- Begin album_tile insertion -->
+        <!-- End album_tile insertion -->
+        </div>
+    </div>
+  </div>
+
+<br>
+  <div align="center">
+    <button id="open-popup" class="btn btn-default btn-lg">Listen to a few of our samples!</button>
+  <div>
+</br>
+
+<div id="my-popup" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  Blues - B. B. King: Paying the Cost to be the Boss (2000)
+  <img src="static/img/portfolio/fullsize/Blues/515588.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/blues_payingTheCostToBeTheBoss.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+<div id="my-popup2" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  Classical - Brahms: Violin Sonata in G Major, Op. 78 (1878)
+  <img src="static/img/portfolio/fullsize/Classical/1052805256.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/classical_violinsonataInGMajor,_Op.78.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+<div id="my-popup3" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  Country - Kenny Chesney: Somewhere With You (2010)
+  <img src="static/img/portfolio/fullsize/Country/kc_hw.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/country_somewhereWithYou.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+<div id="my-popup4" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  Dance - La Roux: Bulletproof (2015)
+  <img src="static/img/portfolio/fullsize/Dance/331339668.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/dance_bulletproof.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+<div id="my-popup5" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  Disney - Ariel: Happy Birthday, Princess (2005)
+  <img src="static/img/portfolio/fullsize/Disney/156780227.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/disney_happyBirthdayPrincess.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+<div id="my-popup6" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  Electronic - Kuba: Hole In My Sitar (2012)
+  <img src="static/img/portfolio/fullsize/Electronic/498552145.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/electronic_holeInMySitar.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+<div id="my-popup7" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  Jazz - Gregory Porter: Consequence of Love (2017)
+  <img src="static/img/portfolio/fullsize/Jazz/1088093080.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/jazz_consequenceOfLove.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+<div id="my-popup8" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  Pop - Adele: Hello (2015)
+  <img src="static/img/portfolio/fullsize/Pop/1051394208.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/pop_hello.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+<div id="my-popup9" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  R&B/Soul - Destiny's Child: Say My Name (1999)
+  <img src="static/img/portfolio/fullsize/Rnb_Soul/266809606.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/rnb_sayMyName.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+
+<div id="my-popup10" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  Hip-Hop - Drake: Controlla (2015)
+  <img src="static/img/portfolio/fullsize/Hip-Hop/1109766593.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/rap_controlla.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+<div id="my-popup11" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  Reggae - Bob Marley: One Love/People Get Ready
+  <img src="static/img/portfolio/fullsize/Reggae/19851211.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/reggae_oneLove_peopleGetReady.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+<div id="my-popup12" data-group= "13" class="mfp-hide white-popup portfolio-box">
+  Rock - Elvis Presley: Jailhouse Rock (1958)
+  <img src="static/img/portfolio/fullsize/Rock/217633715.jpg" class="galleryItem portfolio-box" align="center"></img>
+  <audio controls>
+    <source src="static/img/portfolio/audio/rock_jailhouseRock.mp3" class="portfolio-box" align="center">
+  </audio>
+</div>
+<br>
+<a href="/more-artwork" class="page-scroll btn btn-default btn-lg">More Artwork</a>
+</br>
+</section>
+
+
+<!-- Performance Section -->
+<section id="evaluation" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Model Performance</h2>
+            <p>Model Performance was evaluated for the training, validation and test sets</p>
+              <br align="left"><bold>Training Set:</bold> 36 classes each with an average of 750 images (unbalanced classes)</br>
+              <br>To see how the model performed on each image displayed above, click <a href="broken-link.com">here</a>
+              <br>Training accuracy: ~45% (varies iteratively)</br>
+              <br><bold>Validation Set:</bold> 36 classes each with an average of 94 images</br>
+              <br>Validation accuracy: 28% (varies iteratively)</br>
+              <br><bold>Test Set:</bold> 36 classes each with an average of 94 images</br>
+              <br>Test accuracy: 17.1% (final hold-out set)</br>
+            <h3>What if your favorite album cover was in the test set?</h3>
+            <p>Upload your image below to seee how the model would perform</p>
+            <form action="/uploader" method="POST"
+                enctype="multipart/form-data">
+                <input type="file" name="pic" accept="image/*" class="btn btn-default btn-lg">
+                <br>
+                  <br>
+                    <input type="submit" class="btn btn-default btn-lg">
+                  </br>
+                </br>
+            </form>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+      <section id="contact" class="contact-section text-center">
+          <div class="row">
+              <div class="col-lg-8 col-lg-offset-2">
+                  <h2>Contact</h2>
+                  <p>Feel free get in touch, ask questions, or even just say hello!</p>
+                  <p><a href="mailto:bowersa@hawaii.edu" class="btn btn-default btn-lg">bowersa@hawaii.edu</a>
+                  </p>
+                  <ul class="list-inline banner-social-buttons">
+                    <!-- add link to linkedin? anything else?-->
+                      <li>
+                          <a href="https://github.com/akbowers/album_art.git" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">See This Project on Github</span></a>
+                      </li>
+                      <li>
+                          <a href="https://www.linkedin.com/in/amanda-bowers" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Connect on LinkedIn</span></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+          <div class="container text-center">
+              <p>Copyright &copy; Amanda Bowers 2017</p>
+              <p>Photos Copyright &copy; Apple iTunes 2017</p>
+          </div>
+      </footer>
+
+    <!-- jQuery -->
+    <script src="static/vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+      <script src="static/vendor/scrollreveal/scrollreveal.min.js"></script>
+      <script src="static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+      <!-- Theme JavaScript -->
+      <script src="static/js/creative.js"></script>
+
+</body>
+
+</html>

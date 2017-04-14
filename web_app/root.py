@@ -12,6 +12,11 @@ def index():
     print "in index"
     return render_template('index.html')
 
+@app.route('/more-artwork', methods = ['GET'])
+def more():
+    print "in more"
+    return render_template('more-artwork.html')
+
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
     print 'in upload file'

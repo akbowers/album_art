@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Album Art Classifier - Amanda Bowers</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="static/css/grayscale.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .newspaper {
+        -webkit-column-count: 4; /* Chrome, Safari, Opera */
+        -moz-column-count: 4; /* Firefox */
+        column-count: 4;
+    }
+    </style>
+
+    <!-- Plugin CSS -->
+    <link href="static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="static/css/creative.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> <span class="light">Album Cover</span> Identification
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#evaluation">Evaluation</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <section class="no-padding" id="training">
+    <div class="container-fluid">
+        <div class="row no-gutter">
+        <!-- Begin album_tile insertion -->
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Alternative/1021655262.jpg" data-group="1" class="galleryItem portfolio-box" title="Unzucht: Todsünde 8 (2015)">
+						<img src="static/img/portfolio/thumbnails/1021655262.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Alternative
+									</div>
+									<div class="project-category text-faded">
+									Unzucht: Todsünde 8
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Alternative/1022164257.jpg" data-group="1" class="galleryItem portfolio-box" title="Vance Joy: Dream Your Life Away (Special Edition) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1019347915.jpg" data-group="1" class="galleryItem portfolio-box" title="City and Colour: If I Should Go Before You (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1017756910.jpg" data-group="1" class="galleryItem portfolio-box" title="Lou Barlow: Brace the Wave (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1000790368.jpg" data-group="1" class="galleryItem portfolio-box" title="Diane Coffee: Everybody's a Good Dog (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1002447317.jpg" data-group="1" class="galleryItem portfolio-box" title="Cold Showers: Matter of Choice (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1010724375.jpg" data-group="1" class="galleryItem portfolio-box" title="Oh Wonder: Oh Wonder (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1020314203.jpg" data-group="1" class="galleryItem portfolio-box" title="Unzucht: Rosenkreuzer (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1007482028.jpg" data-group="1" class="galleryItem portfolio-box" title="Fever the Ghost: ZIrconium Meconium (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1002954426.jpg" data-group="1" class="galleryItem portfolio-box" title="Ramones: Ramones Mania (1988)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1007755572.jpg" data-group="1" class="galleryItem portfolio-box" title="Human Resources: En Route (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1013154386.jpg" data-group="1" class="galleryItem portfolio-box" title="The Nightgowns: Bonita - EP (2011)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1012938802.jpg" data-group="1" class="galleryItem portfolio-box" title="Qual: Sable (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1017852383.jpg" data-group="1" class="galleryItem portfolio-box" title="PWR BTTM: Ugly Cherries (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Alternative/1002790772.jpg" data-group="1" class="galleryItem portfolio-box" title="Night Powers: The Hand of the Thief (2015)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Anime/1047176678.jpg" data-group="2" class="galleryItem portfolio-box" title="VisualArt's / Key Sounds Label: Charlotte Op 'Bravely You' / Ed 'Yakeochinai Tsubasa' - EP (2015)">
+						<img src="static/img/portfolio/thumbnails/1047176678.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Anime
+									</div>
+									<div class="project-category text-faded">
+									VisualArt's / Key Sounds Label: Charlotte Op 'Bravely You' / Ed 'Yakeochinai Tsubasa' - EP
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Anime/1019294890.jpg" data-group="2" class="galleryItem portfolio-box" title="Mr Dooves: Saturday Morning Acapella: Volume 3 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1000566637.jpg" data-group="2" class="galleryItem portfolio-box" title="コーネリアス: Ghost in the Shell (The Movie Original Soundtrack) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1029362559.jpg" data-group="2" class="galleryItem portfolio-box" title="そらいろまふらー: プレリズムアーチ (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1100137341.jpg" data-group="2" class="galleryItem portfolio-box" title="fhana: What a Wonderful World Line (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1116592813.jpg" data-group="2" class="galleryItem portfolio-box" title="OLDCODEX: Fixed Engine (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1024018569.jpg" data-group="2" class="galleryItem portfolio-box" title="妖精帝國: Shadow Corps[e] (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1065723934.jpg" data-group="2" class="galleryItem portfolio-box" title="Rasmus Faber: Gakusen Toshi Asterisk Original Soundtrack (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1073273760.jpg" data-group="2" class="galleryItem portfolio-box" title="Kenzie Smith Piano: Anime Music Collection Piano Solo Vol.2 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1096588417.jpg" data-group="2" class="galleryItem portfolio-box" title="Maretu: Coin Locker Baby (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1112892049.jpg" data-group="2" class="galleryItem portfolio-box" title="Various Artists: Vocaloid Future Classics (feat. Hatsune Miku) (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1003192747.jpg" data-group="2" class="galleryItem portfolio-box" title="Various Artists: TV Anime "Fairy Tail" Op & Ed Theme Songs, Vol. 3 (2013)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1004695712.jpg" data-group="2" class="galleryItem portfolio-box" title="Various Artists: TV Anime "Fairy Tail" Op & Ed Theme Songs, Vol. 2 (Standard Edition) (2012)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1004995165.jpg" data-group="2" class="galleryItem portfolio-box" title="Various Artists: TV Anime "Fairy Tail" Op & Ed Theme Songs, Vol. 1 (2011)"> </a>
+					<a href="static/img/portfolio/fullsize/Anime/1066722724.jpg" data-group="2" class="galleryItem portfolio-box" title="Various Artists: TV Anime "Dance with Devils" Musical Collection 'Dance with Destinies' (2015)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Brazilian/1015039769.jpg" data-group="3" class="galleryItem portfolio-box" title="Leandro Sapucahy: Eu Amo a Vida (2015)">
+						<img src="static/img/portfolio/thumbnails/1015039769.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Brazilian
+									</div>
+									<div class="project-category text-faded">
+									Leandro Sapucahy: Eu Amo a Vida
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1008979535.jpg" data-group="3" class="galleryItem portfolio-box" title="Various Artists: Encontro da Sofrência (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1008990061.jpg" data-group="3" class="galleryItem portfolio-box" title="Bonde do Brasil: Amor Infinito (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1011598145.jpg" data-group="3" class="galleryItem portfolio-box" title="Various Artists: Pixinguinha 70 (1996)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1008386660.jpg" data-group="3" class="galleryItem portfolio-box" title="Silvanno Salles: Só Recordações (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1008982137.jpg" data-group="3" class="galleryItem portfolio-box" title="Silvanno Salles: Silvanno Salles, Vol. 18 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1009571394.jpg" data-group="3" class="galleryItem portfolio-box" title="Chicabana: Sitio da Chica (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1012476824.jpg" data-group="3" class="galleryItem portfolio-box" title="Maria Creuza, Toquinho & Vinicius de Moraes: Chants Du Brésil (2001)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1013232269.jpg" data-group="3" class="galleryItem portfolio-box" title="Alexandre Pires: Pecado Original (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1010914717.jpg" data-group="3" class="galleryItem portfolio-box" title="Eduardo Gudin & Notícias dum Brasil 4: Eduardo Gudin & Noticias Dum Brasil 4 (2000)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1007507041.jpg" data-group="3" class="galleryItem portfolio-box" title="Aline Calixto: Meu Ziriguidum (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1005887669.jpg" data-group="3" class="galleryItem portfolio-box" title="Di Paullo & Paulino: Não Desista (Ao Vivo) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1008976553.jpg" data-group="3" class="galleryItem portfolio-box" title="Various Artists: Sertanejo na Pista: Barretos (Ao Vivo) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1008386569.jpg" data-group="3" class="galleryItem portfolio-box" title="Chitãozinho & Xororó: 40 Anos "Entre Amigos" (Ao Vivo) (2011)"> </a>
+					<a href="static/img/portfolio/fullsize/Brazilian/1013200494.jpg" data-group="3" class="galleryItem portfolio-box" title="Grupo Clareou: Vou Vencer (2015)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Children's_Music/215614907.jpg" data-group="4" class="galleryItem portfolio-box" title="Raimond Lap: Lovely Baby & Mommy (2005)">
+						<img src="static/img/portfolio/thumbnails/215614907.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Children's Music
+									</div>
+									<div class="project-category text-faded">
+									Raimond Lap: Lovely Baby & Mommy
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/713151874.jpg" data-group="4" class="galleryItem portfolio-box" title="Various Artists: Ганс Христиан Андерсен: Оле-Лукойе (2009)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/1004591324.jpg" data-group="4" class="galleryItem portfolio-box" title="Odd Squad & Paul Buckley: Stop the Music (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/429139873.jpg" data-group="4" class="galleryItem portfolio-box" title="Serge Reggiani, Agnès Laurent & Suzanne Gabriello: Le dernier des Mohicans (2011)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/260759017.jpg" data-group="4" class="galleryItem portfolio-box" title="Brigitte Weninger & Pauli: Pauli: Ein Geschwisterchen für Pauli (Mundart Version) (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/397158663.jpg" data-group="4" class="galleryItem portfolio-box" title="Various Artists: Songs and Story: Winnie the Pooh and the Honey Tree - EP (2009)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/1011528889.jpg" data-group="4" class="galleryItem portfolio-box" title="Rockabye Baby!: Lullaby Renditions of Sublime (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/1020659535.jpg" data-group="4" class="galleryItem portfolio-box" title="Various Artists: 40 Favourite Toddler Songs - Perfect for Kids Party Playtime, Learning, Babies Night Time Lullabies, Infants & Sing-a-Longs (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/1015912575.jpg" data-group="4" class="galleryItem portfolio-box" title="Our World: Times Table Tour (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/1005857747.jpg" data-group="4" class="galleryItem portfolio-box" title="Hillsong Kids Jr.: Piano Lullabies, Vol. 2 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/1010709223.jpg" data-group="4" class="galleryItem portfolio-box" title="LEGO Friends: LEGO Friends - EP (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/1005447151.jpg" data-group="4" class="galleryItem portfolio-box" title="Laura Nashman & John aLonso: Celtic Lullabies (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/1002180513.jpg" data-group="4" class="galleryItem portfolio-box" title="Adventures in Odyssey: #59: Taking the Plunge (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/1000073959.jpg" data-group="4" class="galleryItem portfolio-box" title="Josh Verbae: Peter Rabbit and Friends (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Children's_Music/323049082.jpg" data-group="4" class="galleryItem portfolio-box" title="SpongeBob SquarePants: SpongeBob's Greatest Hits (2009)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Comedy/101253793.jpg" data-group="5" class="galleryItem portfolio-box" title="Daniel Tosh: True Stories I Made Up (2005)">
+						<img src="static/img/portfolio/thumbnails/101253793.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Comedy
+									</div>
+									<div class="project-category text-faded">
+									Daniel Tosh: True Stories I Made Up
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Comedy/1102921101.jpg" data-group="5" class="galleryItem portfolio-box" title="Brian Moote: Artsy? (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1062405457.jpg" data-group="5" class="galleryItem portfolio-box" title="Sally Brooks: Brooks Was Here (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1085768926.jpg" data-group="5" class="galleryItem portfolio-box" title="Josh Gondelman: Physical Whisper (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1046161711.jpg" data-group="5" class="galleryItem portfolio-box" title="Emily Heller: Good for Her (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1079999270.jpg" data-group="5" class="galleryItem portfolio-box" title="Brian Regan: The Epitome of Hyperbole (2008)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1029329514.jpg" data-group="5" class="galleryItem portfolio-box" title="Jay Mohr: Jay Mohr: Happy. And a Lot. (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1022209224.jpg" data-group="5" class="galleryItem portfolio-box" title="The U.S. Army Infantry: Run to Cadence With the U.S. Army Infantry (1998)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1030095076.jpg" data-group="5" class="galleryItem portfolio-box" title="Andy Erikson: Secret Unicorn (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1095425916.jpg" data-group="5" class="galleryItem portfolio-box" title="Geoff Tate: Again (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1063000567.jpg" data-group="5" class="galleryItem portfolio-box" title="Lisa Landry: Compliments Below the Waist (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1071812050.jpg" data-group="5" class="galleryItem portfolio-box" title="Brett Hamil: Grower (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1030914584.jpg" data-group="5" class="galleryItem portfolio-box" title="Mike Cronin: Hot For Too Long (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1060806709.jpg" data-group="5" class="galleryItem portfolio-box" title="Brian Regan: Live from Radio City Music Hall (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Comedy/1030165657.jpg" data-group="5" class="galleryItem portfolio-box" title="Alex Stone: Hello. (2015)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1003294879.jpg" data-group="6" class="galleryItem portfolio-box" title="Awaken Worship: Live At B & B (2015)">
+						<img src="static/img/portfolio/thumbnails/1003294879.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Christian & Gospel
+									</div>
+									<div class="project-category text-faded">
+									Awaken Worship: Live At B & B
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1001328495.jpg" data-group="6" class="galleryItem portfolio-box" title="The Procession: The Procession - EP (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1001971831.jpg" data-group="6" class="galleryItem portfolio-box" title="The Mick Lloyd Connection: Great Traditional Hymns, Vol. 2 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1002633670.jpg" data-group="6" class="galleryItem portfolio-box" title="John Mark McMillan & Sarah McMillan: You Are the Avalanche - EP (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1002230749.jpg" data-group="6" class="galleryItem portfolio-box" title="The Talley Boyz: Home: Recorded Live In Longview, Texas (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1002293710.jpg" data-group="6" class="galleryItem portfolio-box" title="Various Artists: 20 #1's Gospel (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1000072895.jpg" data-group="6" class="galleryItem portfolio-box" title="Youth America & Church of the Harvest: I Believe (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1000071139.jpg" data-group="6" class="galleryItem portfolio-box" title="tobyMac: This Is Not a Test (Deluxe Edition) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1000189166.jpg" data-group="6" class="galleryItem portfolio-box" title="Aaron Ray: Identity (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1002008847.jpg" data-group="6" class="galleryItem portfolio-box" title="Melody Hwang: Suddenly (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1002159355.jpg" data-group="6" class="galleryItem portfolio-box" title="Israel & New Breed: Covered: Alive In Asia (Deluxe Version) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1005342697.jpg" data-group="6" class="galleryItem portfolio-box" title="3FOR3: The EP (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1000067737.jpg" data-group="6" class="galleryItem portfolio-box" title="tobyMac: This Is Not a Test (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1002235768.jpg" data-group="6" class="galleryItem portfolio-box" title="The New Joyful Sounds: May Not Have (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Christian_&_Gospel/1004200292.jpg" data-group="6" class="galleryItem portfolio-box" title="Pickin' On Series: The Bluegrass Tribute to MercyMe (feat. Cornbread Red) (2006)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1003795393.jpg" data-group="7" class="galleryItem portfolio-box" title="Buddha Hotel Ibiza Lounge Bar Music Dj: Summer Lounge 2015 - Best Buddha Luxury Lounge Music & Ibiza Chillout Party Night Bar Music (2015)">
+						<img src="static/img/portfolio/thumbnails/1003795393.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Easy Listening
+									</div>
+									<div class="project-category text-faded">
+									Buddha Hotel Ibiza Lounge Bar Music Dj: Summer Lounge 2015 - Best Buddha Luxury Lounge Music & Ibiza Chillout Party Night Bar Music
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1002612689.jpg" data-group="7" class="galleryItem portfolio-box" title="Hip Hop Bebop Junction: Tonight - Bebop Plays the Music of Ludacris (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1001838356.jpg" data-group="7" class="galleryItem portfolio-box" title="BBC Band: Plays Glenn Miller (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1021690255.jpg" data-group="7" class="galleryItem portfolio-box" title="Chill Out: Chill Out Music Summer 2015 – Nightlife Sexual Wonderful Chill Out Music Summer Collection (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1011904663.jpg" data-group="7" class="galleryItem portfolio-box" title="Oscar Pettiford: Grandes Éxitos (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1005019895.jpg" data-group="7" class="galleryItem portfolio-box" title="Various Artists: Beach Chill & Deep House 2015 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1008388509.jpg" data-group="7" class="galleryItem portfolio-box" title="Buddha Hotel Ibiza Lounge Bar Music Dj: Paris Hotel - 50 Best Lounge Music, Sexy Buddha Music & Love Making Music Playlist (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1001680573.jpg" data-group="7" class="galleryItem portfolio-box" title="Various Artists: Sahara Sunrise (Arabic Oriental Music) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1006038562.jpg" data-group="7" class="galleryItem portfolio-box" title="Joe Albany: Essential Jazz Masters (2012)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1020195405.jpg" data-group="7" class="galleryItem portfolio-box" title="Bollywood Buddha Indian Music Café: Taste of Orient 2015 - Buddha Oriental Chill Lounge Music & Exotic Bollywood Songs for Spa, Massage, Relaxation and Belly Dancing (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1024036359.jpg" data-group="7" class="galleryItem portfolio-box" title="Lounge Safari Buddha Chillout do Mar Café & Alex Pasha Dj: Hotel Chillout Ibiza 2015 – Ethno Lounge Beach Bar Playa del Mar Collection Compiled by Alex Pasha Dj (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1012132816.jpg" data-group="7" class="galleryItem portfolio-box" title="Dean Martin: Italian Love Songs (Remastered) (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1000859852.jpg" data-group="7" class="galleryItem portfolio-box" title="Lars Leonhard: Deep Venture (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1002722997.jpg" data-group="7" class="galleryItem portfolio-box" title="Hip Hop Bebop Junction: Tonight: Bebop Plays the Music of Outkast (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/Easy_Listening/1000758493.jpg" data-group="7" class="galleryItem portfolio-box" title="Pearl Django: Time Flies (2015)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Enka/1017271110.jpg" data-group="8" class="galleryItem portfolio-box" title="Furusatominyougakudan: Michinokunotabi Furusatominyousyu (2015)">
+						<img src="static/img/portfolio/thumbnails/1017271110.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Enka
+									</div>
+									<div class="project-category text-faded">
+									Furusatominyougakudan: Michinokunotabi Furusatominyousyu
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Enka/1060490738.jpg" data-group="8" class="galleryItem portfolio-box" title="Jangmin: 디스코 조약돌 사랑, Vol. 1,2 (2001)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1017236527.jpg" data-group="8" class="galleryItem portfolio-box" title="Various Artists: Ketteiban Nihon No Minyou Nomeya Utaeya Kyoudoziman (2009)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1017272225.jpg" data-group="8" class="galleryItem portfolio-box" title="Nippon Kototosyakuhachinokai: Kototosyakuhachi Meikyokusyu (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1024954247.jpg" data-group="8" class="galleryItem portfolio-box" title="박현민: 추억의 옛노래, Vol. 1, 2 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1040487160.jpg" data-group="8" class="galleryItem portfolio-box" title="이정옥 & Lee Chang Whee: 불후의 명곡, Vol. 3, 4 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1016912036.jpg" data-group="8" class="galleryItem portfolio-box" title="Various Artists: Ketteiban Hurukiyoki Nihon No Uta (2012)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1017268616.jpg" data-group="8" class="galleryItem portfolio-box" title="CTA Orchestra: Aisyuunomadorosuenka (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1043496303.jpg" data-group="8" class="galleryItem portfolio-box" title="Kum Jan Di: 트롯트 금잔디, Vol. 9, 10 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1029859739.jpg" data-group="8" class="galleryItem portfolio-box" title="Abeya: Hinomarhythm (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1059661027.jpg" data-group="8" class="galleryItem portfolio-box" title="최유나: 애정의 조건 (1987)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1059647837.jpg" data-group="8" class="galleryItem portfolio-box" title="노고지리: 그대가 생각날 때면 / 어두운 밤에 (1981)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1040484161.jpg" data-group="8" class="galleryItem portfolio-box" title="Jeong Juhui: 경음악 파티, Vol. 1 - 올 디스코 (Instrumental) (1990)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1018802347.jpg" data-group="8" class="galleryItem portfolio-box" title="Kidarinsyoue & Kidarinsyouko: Ranbu Tsugarujyamisen (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Enka/1029807995.jpg" data-group="8" class="galleryItem portfolio-box" title="이민숙: 흘러간 옛날노래, Vol. 1, 2 (2005)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1058622922.jpg" data-group="9" class="galleryItem portfolio-box" title="Fearless Motivation: Fear Less Dominate More (Gym & Sports Motivational Speeches & Workout Music) (2015)">
+						<img src="static/img/portfolio/thumbnails/1058622922.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Fitness & Workout
+									</div>
+									<div class="project-category text-faded">
+									Fearless Motivation: Fear Less Dominate More (Gym & Sports Motivational Speeches & Workout Music)
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1068319220.jpg" data-group="9" class="galleryItem portfolio-box" title="Various Artists: Now That's What I Call a Workout 2016 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1001597999.jpg" data-group="9" class="galleryItem portfolio-box" title="Various Artists: 40 Best Songs 2015 For Running & Workout (Unmixed Compilation for Fitness & Workout 135 - 170 BPM) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1033948021.jpg" data-group="9" class="galleryItem portfolio-box" title="Power Music Workout: 35 Top Hits, Vol. 10 - Workout Mixes (Unmixed Workout Music Ideal for Gym, Jogging, Running, Cycling, Cardio and Fitness) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1064027053.jpg" data-group="9" class="galleryItem portfolio-box" title="Various Artists: Running Trax 2016 - Ministry of Sound (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1036944588.jpg" data-group="9" class="galleryItem portfolio-box" title="Fearless Motivation: Today Is the Day: The Greatest Motivational Speeches (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1069388254.jpg" data-group="9" class="galleryItem portfolio-box" title="Dynamix Music: 40 POP Hits 2016 (Unmixed Workout Tracks For Running, Jogging, Fitness & Exercise) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1066987724.jpg" data-group="9" class="galleryItem portfolio-box" title="Power Music Workout: 55 Smash Hits! - Running Remixes, Vol. 3 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1090590369.jpg" data-group="9" class="galleryItem portfolio-box" title="Power Music Workout: 35 Top Hits, Vol. 11 - Workout Mixes (Unmixed Workout Music Ideal for Gym, Jogging, Running, Cycling, Cardio and Fitness) (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1005059576.jpg" data-group="9" class="galleryItem portfolio-box" title="Various Artists: 40 Tabata Hits Summer 2015 Session (20 Sec. Work and 10 Sec. Rest Cycles With Vocal Cues for Fitness & Workout) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1062623450.jpg" data-group="9" class="galleryItem portfolio-box" title="Various Artists: EDM Workout Hits 2016: Motivation Training Music (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/101740158.jpg" data-group="9" class="galleryItem portfolio-box" title="Various Artists: Ultra: Workout 02 (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1009393018.jpg" data-group="9" class="galleryItem portfolio-box" title="Muscle Prodigy: Alpha Motivation (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1030910626.jpg" data-group="9" class="galleryItem portfolio-box" title="Various Artists: 20 Best Top 40 Hits of 2015 (Workout Mixes) [Unmixed Songs For Fitness & Exercise] (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Fitness_&_Workout/1041466433.jpg" data-group="9" class="galleryItem portfolio-box" title="Power Music Workout: Girls on the Run - 40 Running & Workout Hits (Unmixed Workout Music Ideal for Gym, Jogging, Running, Cycling, Cardio and Fitness) (2015)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/French_Pop/1046093940.jpg" data-group="10" class="galleryItem portfolio-box" title="Mylène Farmer: Interstellaires (2015)">
+						<img src="static/img/portfolio/thumbnails/1046093940.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									French Pop
+									</div>
+									<div class="project-category text-faded">
+									Mylène Farmer: Interstellaires
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/French_Pop/1091878865.jpg" data-group="10" class="galleryItem portfolio-box" title="Serge Gainsbourg: L'homme à tête de chou (1976)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/1054243594.jpg" data-group="10" class="galleryItem portfolio-box" title="Louane: Chambre 12 (Deluxe) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/120318362.jpg" data-group="10" class="galleryItem portfolio-box" title="French Affair: Rendezvous (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/1142804169.jpg" data-group="10" class="galleryItem portfolio-box" title="Charles Aznavour: Singles Collection 1 - 1954 / 1956 (2014)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/1130136360.jpg" data-group="10" class="galleryItem portfolio-box" title="Céline Dion: Encore un soir (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/110333114.jpg" data-group="10" class="galleryItem portfolio-box" title="Ensemble Ibn Arabi: Chants soufis arabo-andalous (Arabo-Andalusian Sufi Songs) (2003)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/101878411.jpg" data-group="10" class="galleryItem portfolio-box" title="Various Artists: Swinging Mademoiselles (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/151668856.jpg" data-group="10" class="galleryItem portfolio-box" title="Vive la Fête: Nuit Blanche (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/1064777538.jpg" data-group="10" class="galleryItem portfolio-box" title="Fréro Delavega: Des ombres et des lumières (Version Deluxe) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/1165543782.jpg" data-group="10" class="galleryItem portfolio-box" title="Vianney: Vianney (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/156248403.jpg" data-group="10" class="galleryItem portfolio-box" title="Louise Attaque: A plus tard crocodile (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/128835592.jpg" data-group="10" class="galleryItem portfolio-box" title="Yves Montand: Sous le ciel de Paris (Re-mastered) (1991)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/129060277.jpg" data-group="10" class="galleryItem portfolio-box" title="Jeanne Moreau: Jeanne Moreau : Succès et inédits (1995)"> </a>
+					<a href="static/img/portfolio/fullsize/French_Pop/1148143276.jpg" data-group="10" class="galleryItem portfolio-box" title="Julien Doré: & (Deluxe version) (2016)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/German_Pop/1174543216.jpg" data-group="11" class="galleryItem portfolio-box" title="Helene Fischer: Weihnachten (Neue Deluxe Version) (2016)">
+						<img src="static/img/portfolio/thumbnails/1174543216.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									German Pop
+									</div>
+									<div class="project-category text-faded">
+									Helene Fischer: Weihnachten (Neue Deluxe Version)
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1148200839.jpg" data-group="11" class="galleryItem portfolio-box" title="Oesch's die Dritten: Jodelzirkus (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1028880187.jpg" data-group="11" class="galleryItem portfolio-box" title="Vulfpeck: Thrill of the Arts (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1144851870.jpg" data-group="11" class="galleryItem portfolio-box" title="Die Amigos: Liebe und Sehnsucht (1989)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1035587647.jpg" data-group="11" class="galleryItem portfolio-box" title="Various Artists: Volksmusik aus dem Tegernseer Tal (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1160118965.jpg" data-group="11" class="galleryItem portfolio-box" title="Vulfpeck: The Beautiful Game (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1181823892.jpg" data-group="11" class="galleryItem portfolio-box" title="Die Fegerländer: Flieg' ins Fegerland (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1034056162.jpg" data-group="11" class="galleryItem portfolio-box" title="Helene Fischer: Farbenspiel Live - Die Stadion-Tournee (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1108940239.jpg" data-group="11" class="galleryItem portfolio-box" title="Thomas Anders: History (Deluxe Version) (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1052735776.jpg" data-group="11" class="galleryItem portfolio-box" title="Peter Schilling: DNA (2014)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/102867009.jpg" data-group="11" class="galleryItem portfolio-box" title="Der Lüneburger Kinderchor: Umlaut Kiddie Masters: Kuckuck, Kuckuck (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1021629332.jpg" data-group="11" class="galleryItem portfolio-box" title="Helene Fischer: Von Hier Bis Unendlich (Weihnachtsedition) (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/104561057.jpg" data-group="11" class="galleryItem portfolio-box" title="Various Artists: Superhits der Blasmusik (1974)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1155880679.jpg" data-group="11" class="galleryItem portfolio-box" title="Mallo Tepe: How to Love (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/German_Pop/1170838151.jpg" data-group="11" class="galleryItem portfolio-box" title="Cheny Ken: Run This Town (2016)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1015215290.jpg" data-group="12" class="galleryItem portfolio-box" title="One Ensemble: Satan's Toolbox: Creepy Sounds for Halloween (2015)">
+						<img src="static/img/portfolio/thumbnails/1015215290.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Holiday Music
+									</div>
+									<div class="project-category text-faded">
+									One Ensemble: Satan's Toolbox: Creepy Sounds for Halloween
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1006948.jpg" data-group="12" class="galleryItem portfolio-box" title="Vince Gill: Let There Be Peace On Earth (1993)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1030762714.jpg" data-group="12" class="galleryItem portfolio-box" title="Boston Pops Orchestra, Tanglewood Festival Chorus & Keith Lockhart: A Boston Pops Christmas: Live from Symphony Hall (2013)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1028645538.jpg" data-group="12" class="galleryItem portfolio-box" title="Mastreechter Staar: Kerstliederen, Vol. 1 & 2 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1014736940.jpg" data-group="12" class="galleryItem portfolio-box" title="Cappella SF & Ragnar Bohlin: Light of Gold (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1005411491.jpg" data-group="12" class="galleryItem portfolio-box" title="Robin Spielberg: American Chanukah: Songs Celebrating Chanukah and Peace (2002)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1033381902.jpg" data-group="12" class="galleryItem portfolio-box" title="Australian Children's Choir: Carols of Many Nations (1982)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1036528276.jpg" data-group="12" class="galleryItem portfolio-box" title="Scott Wilkie: Joy (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1039010548.jpg" data-group="12" class="galleryItem portfolio-box" title="Mercy River: All Is Bright (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1011272662.jpg" data-group="12" class="galleryItem portfolio-box" title="Elvis Presley: Elvis Sings the Wonderful World of Christmas (1970)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1033560149.jpg" data-group="12" class="galleryItem portfolio-box" title="The Sixteen & Harry Christophers: The Complete Traditional Christmas Carols Collection (1989)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1032402416.jpg" data-group="12" class="galleryItem portfolio-box" title="Various Artists: NOW That's What I Call Halloween (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1008721.jpg" data-group="12" class="galleryItem portfolio-box" title="Jimmy Buffett: Christmas Island (1996)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1033654389.jpg" data-group="12" class="galleryItem portfolio-box" title="B2Dance: Greatest Spooky Hits (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Holiday_Music/1037561977.jpg" data-group="12" class="galleryItem portfolio-box" title="Steven Mitchell: Music and Mistletoes: Music for Ballet Class (2008)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Instrumental/1035672063.jpg" data-group="13" class="galleryItem portfolio-box" title="Italian Restaurant Music Academy: Little Italy Italian Restaurant Music Party Songs – Traditional Italian Dinner Party, Italian Music Favorites & Best Italian Folk Music for Italian Dinner (2015)">
+						<img src="static/img/portfolio/thumbnails/1035672063.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Instrumental
+									</div>
+									<div class="project-category text-faded">
+									Italian Restaurant Music Academy: Little Italy Italian Restaurant Music Party Songs – Traditional Italian Dinner Party, Italian Music Favorites & Best Italian Folk Music for Italian Dinner
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1025066991.jpg" data-group="13" class="galleryItem portfolio-box" title="David Plumpton: Rock & Pop for Ballet Inspirational Ballet Class Music (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1021822457.jpg" data-group="13" class="galleryItem portfolio-box" title="Clair De Lune: Clair de Lune (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1060288948.jpg" data-group="13" class="galleryItem portfolio-box" title="David Plumpton: Christmas Modern Melodies 2: Inspirational Ballet Class Music (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1118389820.jpg" data-group="13" class="galleryItem portfolio-box" title="Kids Sleep Music Maestro: 100 Songs for Kids Sleep - Deep Sleeping Music for Toddlers and Infants to Sleep All Through the Night, Soothing Lullabies (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1042467639.jpg" data-group="13" class="galleryItem portfolio-box" title="Really Slow Motion: Elevation (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1048222984.jpg" data-group="13" class="galleryItem portfolio-box" title="Intervals: The Shape of Colour (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1023540312.jpg" data-group="13" class="galleryItem portfolio-box" title="Peter Gundry: The Edge of Darkness (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1110380623.jpg" data-group="13" class="galleryItem portfolio-box" title="Smooth Jazz Collective: Smooth Jazz (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1029087635.jpg" data-group="13" class="galleryItem portfolio-box" title="David Plumpton: Modern Melodies 3 (Inspirational Ballet Class Music) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1024856762.jpg" data-group="13" class="galleryItem portfolio-box" title="David Plumpton: New Classics 2 Inspirational Ballet Class Music (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1077840162.jpg" data-group="13" class="galleryItem portfolio-box" title="Tsuko G.: Undertale Kazoo'd! (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1082905220.jpg" data-group="13" class="galleryItem portfolio-box" title="Various Artists: Chronicles of Time (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1002849187.jpg" data-group="13" class="galleryItem portfolio-box" title="Pet Care Club: For Dogs Ear Only – Calm Down Your Animal Companion, Music Therapy for Dogs, Sleep Aids, Pet Relaxation, Stress Relief (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Instrumental/1049297128.jpg" data-group="13" class="galleryItem portfolio-box" title="Pure Massage Music, Spa Music Relaxation Meditation & Best Relaxing SPA Music: 101 Spa Songs Zen Massage Relaxation – Chillax Amazing New Age Music (2015)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/J-Pop/1001884584.jpg" data-group="14" class="galleryItem portfolio-box" title="浜崎あゆみ: Dearest (2001)">
+						<img src="static/img/portfolio/thumbnails/1001884584.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									J-Pop
+									</div>
+									<div class="project-category text-faded">
+									浜崎あゆみ: Dearest
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1039774337.jpg" data-group="14" class="galleryItem portfolio-box" title="Gacharic Spin: Music Battler (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1004243801.jpg" data-group="14" class="galleryItem portfolio-box" title="浜崎あゆみ: Heaven - EP (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1004243851.jpg" data-group="14" class="galleryItem portfolio-box" title="浜崎あゆみ: Startin'/Born To Be... - EP (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1081730023.jpg" data-group="14" class="galleryItem portfolio-box" title="BUMP OF CHICKEN: Butterflies (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1003321550.jpg" data-group="14" class="galleryItem portfolio-box" title="Eir Aoi: D'azur (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1035285794.jpg" data-group="14" class="galleryItem portfolio-box" title="tofubeats: Positive (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1061949444.jpg" data-group="14" class="galleryItem portfolio-box" title="BAND-MAID®: New Beginning (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1004242593.jpg" data-group="14" class="galleryItem portfolio-box" title="浜崎あゆみ: Blue Bird - EP (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1021896582.jpg" data-group="14" class="galleryItem portfolio-box" title="Ayumi Hamasaki: sixxxxxx - EP (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1103135586.jpg" data-group="14" class="galleryItem portfolio-box" title="わーすた: The World Standard (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1004251941.jpg" data-group="14" class="galleryItem portfolio-box" title="浜崎あゆみ: fairyland (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1090290698.jpg" data-group="14" class="galleryItem portfolio-box" title="Reol: No Title- (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1031872724.jpg" data-group="14" class="galleryItem portfolio-box" title="WagakkiBand: Yasouemaki (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/J-Pop/1080867681.jpg" data-group="14" class="galleryItem portfolio-box" title="MONKEY MAJIK: Southview (2016)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Karaoke/275960807.jpg" data-group="15" class="galleryItem portfolio-box" title="Starlite Karaoke: Karaoke: Johnny Cash (2008)">
+						<img src="static/img/portfolio/thumbnails/275960807.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Karaoke
+									</div>
+									<div class="project-category text-faded">
+									Starlite Karaoke: Karaoke: Johnny Cash
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Karaoke/331499368.jpg" data-group="15" class="galleryItem portfolio-box" title="DJ ReDo: Imma Star (Everywhere We Are) (Karaoke Version) - Single (2009)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/275948900.jpg" data-group="15" class="galleryItem portfolio-box" title="Starlite Karaoke: Karaoke: Carrie Underwood - EP (Karaoke Versions) (2008)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/283940007.jpg" data-group="15" class="galleryItem portfolio-box" title="Ameritz - Karaoke: Karaoke - Hannah Montana (2008)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/276444591.jpg" data-group="15" class="galleryItem portfolio-box" title="Raw-Flava Productions: 50 RnB & HipHop Beats, Vol. 1 (New Rap & Soul Karaoke Chart Playbacks) (2008)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/1033174604.jpg" data-group="15" class="galleryItem portfolio-box" title="Scott Bradlee's Postmodern Jukebox: So, You Think You Can Sing? (Official PMJ Karaoke Tracks) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/273592170.jpg" data-group="15" class="galleryItem portfolio-box" title="KAPPA MIKEY: The Kappa Mikey Karaoke Movie Soundtrack (2008)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/104527330.jpg" data-group="15" class="galleryItem portfolio-box" title="The Karaoke Channel: The Karaoke Channel - Elvis Presley, Vol. 3 (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/117950471.jpg" data-group="15" class="galleryItem portfolio-box" title="Karaoke All Stars: Karaoke Hits: Greatest Hits Vol. 5 (ABBA) (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/334138564.jpg" data-group="15" class="galleryItem portfolio-box" title="Starlite Karaoke: Karaoke Party In the USA (2009)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/286422858.jpg" data-group="15" class="galleryItem portfolio-box" title="Starlite Karaoke: Karaoke: Rascal Flatts (2008)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/297574839.jpg" data-group="15" class="galleryItem portfolio-box" title="Kris Farrow: Acoustic Guitar Karaoke, Vol. 5 (2008)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/1172614343.jpg" data-group="15" class="galleryItem portfolio-box" title="Ultimate Tracks: The Blood Will Never Lose Its Power (As Made Popular By Clay Crosse) [Performance Track] (2007)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/120613066.jpg" data-group="15" class="galleryItem portfolio-box" title="Sound Choice Karaoke: Karaoke - Eagles, Vol. 1 (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/Karaoke/314758897.jpg" data-group="15" class="galleryItem portfolio-box" title="Starlite Karaoke: Karaoke Bash: Top Hits 2009 (2008)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/K-Pop/1031157201.jpg" data-group="16" class="galleryItem portfolio-box" title="VIXX LR: Beautiful Liar - EP (2015)">
+						<img src="static/img/portfolio/thumbnails/1031157201.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									K-Pop
+									</div>
+									<div class="project-category text-faded">
+									VIXX LR: Beautiful Liar - EP
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1024853838.jpg" data-group="16" class="galleryItem portfolio-box" title="SHINee: Married To the Music - The 4th Album Repackage (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1038703688.jpg" data-group="16" class="galleryItem portfolio-box" title="SEVENTEEN: Boys Be - EP (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1018164495.jpg" data-group="16" class="galleryItem portfolio-box" title="INFINITE: Reality (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1006406080.jpg" data-group="16" class="galleryItem portfolio-box" title="2PM: No.5 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1019135255.jpg" data-group="16" class="galleryItem portfolio-box" title="Super Junior: DEVIL - SUPER JUNIOR SPECIAL ALBUM (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1025660436.jpg" data-group="16" class="galleryItem portfolio-box" title="Wonder Girls: REBOOT (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1037729530.jpg" data-group="16" class="galleryItem portfolio-box" title="MONSTA X: RUSH - EP (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1037939986.jpg" data-group="16" class="galleryItem portfolio-box" title="DAY6: The Day - EP (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1037732950.jpg" data-group="16" class="galleryItem portfolio-box" title="Red Velvet: The Red - The 1st Album (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1018652076.jpg" data-group="16" class="galleryItem portfolio-box" title="GOT7: Just Right - EP (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1031478656.jpg" data-group="16" class="galleryItem portfolio-box" title="Girls' Generation: Lion Heart - The 5th Album (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1010594881.jpg" data-group="16" class="galleryItem portfolio-box" title="AOA: Heart Attack - EP (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1033078843.jpg" data-group="16" class="galleryItem portfolio-box" title="Various Artists: 무한도전 영동고속도로 가요제 - EP (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/K-Pop/1009152020.jpg" data-group="16" class="galleryItem portfolio-box" title="MAMAMOO: Pink Funky - EP (2015)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Latino/1009103024.jpg" data-group="17" class="galleryItem portfolio-box" title="Pitbull: Dale (2015)">
+						<img src="static/img/portfolio/thumbnails/1009103024.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Latino
+									</div>
+									<div class="project-category text-faded">
+									Pitbull: Dale
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Latino/100829.jpg" data-group="17" class="galleryItem portfolio-box" title="Paulina Rubio: Border Girl (2002)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/1014752503.jpg" data-group="17" class="galleryItem portfolio-box" title="Carla Morrison: Déjenme Llorar (Deluxe Edition) (2014)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/1000069666.jpg" data-group="17" class="galleryItem portfolio-box" title="Banda El Recodo de Cruz Lizarraga: Mi Vicio Más Grande (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/101070760.jpg" data-group="17" class="galleryItem portfolio-box" title="Luis Miguel: Romances (1997)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/101679588.jpg" data-group="17" class="galleryItem portfolio-box" title="Antonio Cobo: Arena Caliente (1998)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/1000830433.jpg" data-group="17" class="galleryItem portfolio-box" title="Monsieur Periné: Caja De Música (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/101446.jpg" data-group="17" class="galleryItem portfolio-box" title="Molotov: Apocalypshit (1999)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/101068833.jpg" data-group="17" class="galleryItem portfolio-box" title="Luis Miguel: Segundo Romance (1994)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/1002225988.jpg" data-group="17" class="galleryItem portfolio-box" title="El Komander: Detrás Del Miedo (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/1018952150.jpg" data-group="17" class="galleryItem portfolio-box" title="Banda Sinaloense MS de Sergio Lizarraga: En Vivo - Guadalajara - Monterrey (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/1019671634.jpg" data-group="17" class="galleryItem portfolio-box" title="Frank Delgado: Frank Delgado (En Directo) (2010)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/101249950.jpg" data-group="17" class="galleryItem portfolio-box" title="Luis Miguel: El Concierto (Vivo) (1995)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/1017369714.jpg" data-group="17" class="galleryItem portfolio-box" title="Wise "The Gold Pen" & DJ Luian: 14F (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Latino/1013479378.jpg" data-group="17" class="galleryItem portfolio-box" title="Stephanie Urbina Jones: Bring It Back To the Heartland - EP (2015)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/New_Age/1011349379.jpg" data-group="18" class="galleryItem portfolio-box" title="Relaxing Mindfulness Meditation Relaxation Maestro: 50 Zen Meditation Tracks - Deep Buddhist Meditation Music for Guided Imagery and Mindfulness Exercises (2015)">
+						<img src="static/img/portfolio/thumbnails/1011349379.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									New Age
+									</div>
+									<div class="project-category text-faded">
+									Relaxing Mindfulness Meditation Relaxation Maestro: 50 Zen Meditation Tracks - Deep Buddhist Meditation Music for Guided Imagery and Mindfulness Exercises
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/New_Age/1000817597.jpg" data-group="18" class="galleryItem portfolio-box" title="Meditation Masters: 99 Meditation Tracks - 8 Hours Meditation Session for Mindfulness, Yoga, Sleep, Relaxation and Study (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1010679270.jpg" data-group="18" class="galleryItem portfolio-box" title="Lydia Ievleva PhD: Imagine: Your Best Self Guided Imagery (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1006640584.jpg" data-group="18" class="galleryItem portfolio-box" title="Nirinjan Kaur & Guru Prem Singh Khalsa: White Tantra Yoga, Vol. 1 (1989)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1003494753.jpg" data-group="18" class="galleryItem portfolio-box" title="Meditation Masters: Ocean Sounds – Soothing Meditations, Sea Waves & New Age Music for Relaxation Meditation (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1012332917.jpg" data-group="18" class="galleryItem portfolio-box" title="Chyi Yu: 佛子行三十七誦 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1005034399.jpg" data-group="18" class="galleryItem portfolio-box" title="Various Artists: 50 Spa Tracks - Relaxing Spa Meditation Music and Asian Instrumental Music for Massage, Beauty Care & Total Relaxation (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1003402541.jpg" data-group="18" class="galleryItem portfolio-box" title="Mother Nature Sounds: Mother Nature Soothing Sounds – Pure Sounds of Nature Music for Deep Meditation & Relaxation (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1003451444.jpg" data-group="18" class="galleryItem portfolio-box" title="Zen Hymns Meditation Buddha: 30 Hymns & Relaxing Zen Tracks - Om Chanting, Buddhist Meditation Mantra & Tibetan Crystal Bowls for Deep Meditation (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1010834608.jpg" data-group="18" class="galleryItem portfolio-box" title="Serenity Spa Music Relaxation: Spa Room - 50 Asian Meditation Songs & Spa Massage Relaxing Music for Spa, Wellness & Beauty (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1011253494.jpg" data-group="18" class="galleryItem portfolio-box" title="new age piano & Massage Tribe: The Best of New Age Piano Massage Music (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1006913123.jpg" data-group="18" class="galleryItem portfolio-box" title="Nirinjan Kaur & Guru Prem Singh Khalsa: White Tantra Yoga, Vol. 2 (1989)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1002811596.jpg" data-group="18" class="galleryItem portfolio-box" title="Matthew Barlow: Now Age - Single (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1002063637.jpg" data-group="18" class="galleryItem portfolio-box" title="Zen Music Garden: 50 Mindfulness Exercises with Asian Meditation Music - Relaxing Songs and Zen Meditation Music for Purity, Spirituality & Serenity (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/New_Age/1007234629.jpg" data-group="18" class="galleryItem portfolio-box" title="Tera Naam: Kirtan Kriya - Sa Ta Na Ma (Kundalini Experience Series) (2015)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Opera/1067022395.jpg" data-group="19" class="galleryItem portfolio-box" title="The Metropolitan Opera, Carol Vaness, Kathleen Battle, Frederica von Stade, Thomas Allen, Ruggero Raimondi & James Levine: Mozart: Le nozze di Figaro, K. 492 (Recorded Live at The Met - December 14, 1985) (1984)">
+						<img src="static/img/portfolio/thumbnails/1067022395.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Opera
+									</div>
+									<div class="project-category text-faded">
+									The Metropolitan Opera, Carol Vaness, Kathleen Battle, Frederica von Stade, Thomas Allen, Ruggero Raimondi & James Levine: Mozart: Le nozze di Figaro, K. 492 (Recorded Live at The Met - December 14, 1985)
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Opera/1060701034.jpg" data-group="19" class="galleryItem portfolio-box" title="The Metropolitan Opera, Beverly Sills, Alfredo Kraus, Håkan Hagegård, Gabriel Bacquier & Nicola Rescigno: Donizetti: Don Pasquale (Recorded Live at The Met - January 20, 1979) [Live] (1979)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/1132355728.jpg" data-group="19" class="galleryItem portfolio-box" title="Various Artists: Soprano Arias: The Definitive Collection (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/1113500244.jpg" data-group="19" class="galleryItem portfolio-box" title="Various Artists: Opera's Legendary Performances (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/110339285.jpg" data-group="19" class="galleryItem portfolio-box" title="John McCormack and Frank Patterson: Greatest Irish Tenors (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/1070338396.jpg" data-group="19" class="galleryItem portfolio-box" title="Nicole Car: The Kiss (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/1058197143.jpg" data-group="19" class="galleryItem portfolio-box" title="The Metropolitan Opera, Thomas Hampson, Karita Mattila, Piotr Beczala & Jiří Bělohlávek: Tchaikovsky: Eugene Onegin, Op. 24 (Recorded Live at The Met - February 14, 2009) (2009)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/1019496824.jpg" data-group="19" class="galleryItem portfolio-box" title="NBC Symphony Orchestra, NBC Chorus, Arturo Toscanini & Various Artists: La Traviata (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/1087374548.jpg" data-group="19" class="galleryItem portfolio-box" title="Classical Opera, Ian Page & Allan Clayton: Where'er You Walk: Arias for Handel's Favourite Tenor (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/1076711029.jpg" data-group="19" class="galleryItem portfolio-box" title="Dennis Russell Davies & Orchestra of Teatro Real Madrid: Philip Glass: The Perfect American (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/1060297717.jpg" data-group="19" class="galleryItem portfolio-box" title="The Metropolitan Opera, Carol Vaness, Delores Ziegler, Dawn Upshaw, Frank Lopardo, Richard Cowan, Carlos Feller & Leopold Hager: Mozart: Così fan tutte, K. 588 (Recorded Live at The Met - December 7, 1991) (1991)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/1121414175.jpg" data-group="19" class="galleryItem portfolio-box" title="The Metropolitan Opera, Isabel Leonard, Javier Camarena, Peter Mattei, Maurizio Muraro, Paata Burchuladze & Maurizio Benini: Rossini: Il barbiere di Siviglia (Recorded Live at The Met - October 1, 2011) (2011)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/1099977966.jpg" data-group="19" class="galleryItem portfolio-box" title="Victor Orchestra, Rosario Bourdon, Josef Pasternack, Frank Black, Nathaniel Shilkret & Various Artists: Lucrezia Bori in Opera and Song (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/13326160.jpg" data-group="19" class="galleryItem portfolio-box" title="Coro di Milano, Orchestra Sinfonica di Milano & Riccardo Chailly: Puccini Discoveries (2004)"> </a>
+					<a href="static/img/portfolio/fullsize/Opera/1067976490.jpg" data-group="19" class="galleryItem portfolio-box" title="The Metropolitan Opera, Birgit Nilsson, Karl Liebl & Joseph Rosenstock: Wagner: Tristan und Isolde, WWV 90 (Recorded Live at The Met - March 18, 1961) (1961)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1002218521.jpg" data-group="20" class="galleryItem portfolio-box" title="Sam Lee: Ground of Its Own (2015)">
+						<img src="static/img/portfolio/thumbnails/1002218521.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Singer/Songwriter
+									</div>
+									<div class="project-category text-faded">
+									Sam Lee: Ground of Its Own
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1001178729.jpg" data-group="20" class="galleryItem portfolio-box" title="The Moon and the Nightspirit: Holdrejtek (2014)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1001064842.jpg" data-group="20" class="galleryItem portfolio-box" title="Tenhi: Väre (2002)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1003402001.jpg" data-group="20" class="galleryItem portfolio-box" title="Various Artists: Whom the Moon a Nightsong Sings (2010)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1000561338.jpg" data-group="20" class="galleryItem portfolio-box" title="Vali: Forlatt (2013)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1003341587.jpg" data-group="20" class="galleryItem portfolio-box" title="Camerata Mediolanense: Madrigali (Deluxe Edition) (2013)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1001743505.jpg" data-group="20" class="galleryItem portfolio-box" title="Tenhi: Maaäet (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1001074712.jpg" data-group="20" class="galleryItem portfolio-box" title="Tenhi: Kauan (2000)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1001980256.jpg" data-group="20" class="galleryItem portfolio-box" title="John Smith: Great Lakes (Deluxe) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1001065216.jpg" data-group="20" class="galleryItem portfolio-box" title="Vali: Skogslandskap (2013)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1003405008.jpg" data-group="20" class="galleryItem portfolio-box" title="Sol Invictus: The Devil's Steed (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1001069153.jpg" data-group="20" class="galleryItem portfolio-box" title="The Moon and the Nightspirit: Rego Rejtem (2007)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1004712775.jpg" data-group="20" class="galleryItem portfolio-box" title="Reina del Cid: The Cooling (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1000976268.jpg" data-group="20" class="galleryItem portfolio-box" title="The Ghost of Paul Revere: The Ghost of Paul Revere on Audiotree Live - EP (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Singer_Songwriter/1005272214.jpg" data-group="20" class="galleryItem portfolio-box" title="Pickin' On Series: Pickin' On the Indigo Girls: A Bluegrass Tribute (2004)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Soundtrack/1000670935.jpg" data-group="21" class="galleryItem portfolio-box" title="John Kander, Fred Ebb & Brandon Victor Dixon: The Scottsboro Boys (Original London Cast) (2015)">
+						<img src="static/img/portfolio/thumbnails/1000670935.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Soundtrack
+									</div>
+									<div class="project-category text-faded">
+									John Kander, Fred Ebb & Brandon Victor Dixon: The Scottsboro Boys (Original London Cast)
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1000725362.jpg" data-group="21" class="galleryItem portfolio-box" title="Claire van Kampen & Phil Hopkins: Wolf Hall: Tudor Music (Music from the Original TV Miniseries) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1002507680.jpg" data-group="21" class="galleryItem portfolio-box" title="Various Artists: The Secret River (Music from the Original TV Series) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1009218792.jpg" data-group="21" class="galleryItem portfolio-box" title="Emanuele Bossi, Pasquale Laino & Paolo Buonvino: La dama velata (Colonna sonora originale) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1000713452.jpg" data-group="21" class="galleryItem portfolio-box" title="Albert Evans, Bill Russell & Frank Kelly: Pageant (Original 2014 Off Broadway Cast) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1007388986.jpg" data-group="21" class="galleryItem portfolio-box" title="Various Artists: 春梅(電視原聲帶) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/100959866.jpg" data-group="21" class="galleryItem portfolio-box" title="John Carpenter: Escape from New York (Original Film Soundtrack) (1980)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1010730759.jpg" data-group="21" class="galleryItem portfolio-box" title="Various Artists: Finding Neverland (Original Broadway Cast Recording) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1004953283.jpg" data-group="21" class="galleryItem portfolio-box" title="Bart Buyle: Les Misérables (Piano Backing Tracks) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1003965753.jpg" data-group="21" class="galleryItem portfolio-box" title="Nick Arundel & David Buckley: Batman: Arkham Knight - Original Video Game Score, Vol. 1 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/100959961.jpg" data-group="21" class="galleryItem portfolio-box" title="Alex Heffes: Dear Frankie (Original Motion Picture Soundtrack) (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1003363205.jpg" data-group="21" class="galleryItem portfolio-box" title="Various Artists: Descendants (Original TV Movie Soundtrack) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1012332410.jpg" data-group="21" class="galleryItem portfolio-box" title="Various Artists: 후아유 - 학교 2015 (Original Television Soundtrack) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1005200321.jpg" data-group="21" class="galleryItem portfolio-box" title="London Symphony Orchestra, The English Chorale & Peter Knight: The Magic of the Musicals (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Soundtrack/1002033683.jpg" data-group="21" class="galleryItem portfolio-box" title="Jonas Kvarnström: Best of Piano Movie Themes No.4 (Music Inspired By the Film) (2015)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Spoken_Word/1144724144.jpg" data-group="22" class="galleryItem portfolio-box" title="Fearless Motivation: Hard Work Pays Off (Entrepreneur Motivational Speeches) (2016)">
+						<img src="static/img/portfolio/thumbnails/1144724144.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Spoken Word
+									</div>
+									<div class="project-category text-faded">
+									Fearless Motivation: Hard Work Pays Off (Entrepreneur Motivational Speeches)
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/1048320314.jpg" data-group="22" class="galleryItem portfolio-box" title="Maria GentleWhispering: GentleWhispering Asmr Collection (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/1117584300.jpg" data-group="22" class="galleryItem portfolio-box" title="True Crime Garage: Jeffrey Dahmer (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/1183222322.jpg" data-group="22" class="galleryItem portfolio-box" title="Jocko Willink: Psychological Warfare (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/18296682.jpg" data-group="22" class="galleryItem portfolio-box" title="Christina E. Branz: Vocal Warm Ups & Exercises (2003)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/1126114679.jpg" data-group="22" class="galleryItem portfolio-box" title="This American Life: #589: Tell Me I’m Fat (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/203882236.jpg" data-group="22" class="galleryItem portfolio-box" title="The Doors: The Lost Interview Tapes Featuring Jim Morrison, Vol. 2: The Circus Magazine Interview (2002)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/255593394.jpg" data-group="22" class="galleryItem portfolio-box" title="Aa: Alcoholics Anonymous - Original Edition (Audiobook) (2007)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/1099343246.jpg" data-group="22" class="galleryItem portfolio-box" title="Dan Carlin: Episode 47 - Wrath of the Khans V (2013)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/219345900.jpg" data-group="22" class="galleryItem portfolio-box" title="Fr. Benedict J. Groeschel & Simonetta: The Rosary Is a Place (2001)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/1188428242.jpg" data-group="22" class="galleryItem portfolio-box" title="Nari Clemons: Meditations for Pelvic Health (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/1028046101.jpg" data-group="22" class="galleryItem portfolio-box" title="This American Life: #562: The Problem We All Live With (#562: The Problem We All Live With) (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/1111713121.jpg" data-group="22" class="galleryItem portfolio-box" title="Eric Thomas: The Success Series Season 2 (2016)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/256786833.jpg" data-group="22" class="galleryItem portfolio-box" title="Jeff Foxworthy: Greatest Bits (1999)"> </a>
+					<a href="static/img/portfolio/fullsize/Spoken_Word/188706546.jpg" data-group="22" class="galleryItem portfolio-box" title="Jeff Allen: Lock the Door (2006)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/Vocal/1015938506.jpg" data-group="23" class="galleryItem portfolio-box" title="Alexis Cole & Bucky Pizzarelli: A Beautiful Friendship (2015)">
+						<img src="static/img/portfolio/thumbnails/1015938506.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									Vocal
+									</div>
+									<div class="project-category text-faded">
+									Alexis Cole & Bucky Pizzarelli: A Beautiful Friendship
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/Vocal/1000626859.jpg" data-group="23" class="galleryItem portfolio-box" title="Donna McKechnie: Same Place: Another Time (Donna McKechnie) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1018827516.jpg" data-group="23" class="galleryItem portfolio-box" title="Bobby Rydell: At His Best - Today and Yesterday (Remastered) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1037814928.jpg" data-group="23" class="galleryItem portfolio-box" title="Del Shannon: Singles File (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1012401549.jpg" data-group="23" class="galleryItem portfolio-box" title="The Confederates of Memphis, Tennessee: The Confederates of Memphis, Tennessee: Confederate Encores: Mid Century Barber Shop Quartet Music (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1032427747.jpg" data-group="23" class="galleryItem portfolio-box" title="Mason Williams: The Best Of… Instrumentals & Songs (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1030737163.jpg" data-group="23" class="galleryItem portfolio-box" title="Lisa Bassenge: Canyon Songs (Bonus Track Version) (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1037815527.jpg" data-group="23" class="galleryItem portfolio-box" title="Various Artists: Hard to Find Series: The Hits of Yesterday (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1023623089.jpg" data-group="23" class="galleryItem portfolio-box" title="Tessa Souter: Night of Key Largo (2007)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1018950193.jpg" data-group="23" class="galleryItem portfolio-box" title="Carol Duboc: Colored Glasses (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1017101926.jpg" data-group="23" class="galleryItem portfolio-box" title="Luciana Souza: Speaking in Tongues (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1037656654.jpg" data-group="23" class="galleryItem portfolio-box" title="Laurie Antonioli & Richie Beirach: Varuna (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1033323488.jpg" data-group="23" class="galleryItem portfolio-box" title="Sheila Jordan: Better Than Anything (feat. Harvie S & Alan Broadbent) [Live] (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/1034623386.jpg" data-group="23" class="galleryItem portfolio-box" title="Boston Pops Orchestra, Keith Lockhart & Tanglewood Festival Chorus: The Red Sox Album (2009)"> </a>
+					<a href="static/img/portfolio/fullsize/Vocal/102670332.jpg" data-group="23" class="galleryItem portfolio-box" title="Hayley Westenra: Odyssey - EP (2005)"> </a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="static/img/portfolio/fullsize/World/1002578113.jpg" data-group="24" class="galleryItem portfolio-box" title="Chico Viegas: Calor Tropical Vol. 2 (2015)">
+						<img src="static/img/portfolio/thumbnails/1002578113.jpg" height= "150" width= "750" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+									World
+									</div>
+									<div class="project-category text-faded">
+									Chico Viegas: Calor Tropical Vol. 2
+									</div>
+								</div>
+							</div>
+						</a>
+					<a href="static/img/portfolio/fullsize/World/1002560564.jpg" data-group="24" class="galleryItem portfolio-box" title="Cef: Botão de Rosa (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1002539896.jpg" data-group="24" class="galleryItem portfolio-box" title="Various Artists: Best of Raboday Music, Vol. 1 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1001305646.jpg" data-group="24" class="galleryItem portfolio-box" title="Kenneth Cozad & Group: Songs of Our Old People: Old-Time Round Dance Songs of Oklahoma (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1001645449.jpg" data-group="24" class="galleryItem portfolio-box" title="Jim "Kimo" West: Hotel Honolulu: The Hawaiian Tribute to The Eagles (feat. CMH World) (2007)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1002571713.jpg" data-group="24" class="galleryItem portfolio-box" title="Chico Viegas: As Melhores Produções de Chico Viegas (2006)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1002571080.jpg" data-group="24" class="galleryItem portfolio-box" title="Carlos Burity: Malanza (2009)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1002567651.jpg" data-group="24" class="galleryItem portfolio-box" title="DJ Dias Rodrigues: Picante Vol. 1 (2005)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1001141346.jpg" data-group="24" class="galleryItem portfolio-box" title="Various Artists: Best of Kizomba 2015 (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1002589746.jpg" data-group="24" class="galleryItem portfolio-box" title="Eddy Tussa: Izenu Mutale (2009)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1002579496.jpg" data-group="24" class="galleryItem portfolio-box" title="Dji Tafinha: Duetos (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1000151403.jpg" data-group="24" class="galleryItem portfolio-box" title="Paulo Flores: Paulo Flores e Amigos Vol.1 (2011)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1002592851.jpg" data-group="24" class="galleryItem portfolio-box" title="Fiel Didi: Em Defesa do Semba (2015)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1002566636.jpg" data-group="24" class="galleryItem portfolio-box" title="Michel Linérol & Alberic Louison: Michel Linerol & Albéric Louison (2013)"> </a>
+					<a href="static/img/portfolio/fullsize/World/1002595118.jpg" data-group="24" class="galleryItem portfolio-box" title="Gabriel Tchiema: Mungole (2015)"> </a>
+				</div>
+        <!-- End album_tile insertion -->
+        </div>
+    </div>
+
+    <!--More Genres -->
+<section id="evaluation" class="container content-section text-center">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      The training accuracies are given on a per genre basis. It can be seen that the more homogenous classes with fewer images had higher training accuracies:
+      <div class="newspaper">
+        <br>Alternative</br>
+        <br>Anime</br>
+        <br>Blues</br>
+        <br>Brazilian</br>
+        <br>Children's Music</br>
+        <br>Christian & Gospel</br>
+        <br>Classical</br>
+        <br>Comedy</br>
+        <br>Country</br>
+        <br>Dance</br>
+        <br>Disney</br>
+        <br>Easy Listening</br>
+        <br>Electronic</br>
+        <br>Enka</br>
+        <br>Fitness & Workout</br>
+        <br>French Pop</br>
+        <br>German Pop</br>
+        <br>Hip-Hop/Rap</br>
+        <br>Holiday Music</br>
+        <br>Instrumental</br>
+        <br>J-Pop</br>
+        <br>Jazz</br>
+        <br>K-Pop</br>
+        <br>Karaoke</br>
+        <br>Latino</br>
+        <br>New Age</br>
+        <br>Opera</br>
+        <br>Pop</br>
+        <br>R&B/Soul</br>
+        <br>Reggae</br>
+        <br>Rock</br>
+        <br>Singer/Songwriter</br>
+        <br>Soundtrack</br>
+        <br>Spoken Word</br>
+        <br>Vocal</br>
+        <br>World</br>
+      </div>
+    </div>
+  </div>
+</section>
+      <!-- Footer -->
+      <footer>
+          <div class="container text-center">
+              <p>Copyright &copy; Amanda Bowers 2017</p>
+              <p>Photos Copyright &copy; Apple iTunes 2017</p>
+          </div>
+      </footer>
+
+    <!-- jQuery -->
+    <script src="static/vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+      <script src="static/vendor/scrollreveal/scrollreveal.min.js"></script>
+      <script src="static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+      <!-- Theme JavaScript -->
+      <script src="static/js/creative.js"></script>
+
+</body>
+
+</html>
