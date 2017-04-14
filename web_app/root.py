@@ -6,16 +6,25 @@ import web_predict as p
 
 app = Flask(__name__)
 
+# This is the path to the upload directory
+app.config['UPLOAD_FOLDER'] = 'tmp/'
+# These are the extension that we are accepting to be uploaded
+app.config['ALLOWED_EXTENSIONS'] = set(['jpg', 'JPG'])
+
 @app.route('/')
-@app.route('/index')
 def index():
-    print "in index"
+    #print "in index"
     return render_template('index.html')
 
 @app.route('/more-artwork', methods = ['GET'])
 def more():
-    print "in more"
+    #print "in more"
     return render_template('more-artwork.html')
+
+@app.route('/training', methods = ['GET', 'POST'])
+def training():
+    #print "in training"
+    return render_template('training.html')
 
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
@@ -45,6 +54,7 @@ def upload_file():
             sys.stdout = f
             p.run_inference_on_image(img_path, labels_path, model_path)
 
+        #close file here. Need to finish writing before we can read
         top_prediction, results = wp.get_results(output_name)
         plot_name = 'static/tmp/{}_plt'.format(img_name_sin_ext)
         #print 'PLOT NAME: ', plot_name

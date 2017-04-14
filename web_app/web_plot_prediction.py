@@ -13,6 +13,7 @@ def get_results(filename):
     '''
 
     top_5 = dict()
+
     with open(filename) as f:
         lines = f.readlines()
         top_prediction = lines[0].split('(')[0]
@@ -20,6 +21,14 @@ def get_results(filename):
             genre = line.split('(')[0]
             score = float(line.split()[-1][:-1])
             top_5[genre] = score
+
+    # f = open(filename)
+    # lines = f.readlines()
+    # top_prediction = lines[0].split('(')[0]
+    # for  line in lines:
+    #     genre = line.split('(')[0]
+    #     score = float(line.split()[-1][:-1])
+    #     top_5[genre] = score
 
 
     result = pd.DataFrame(top_5, index= ['score'])
@@ -34,8 +43,7 @@ def plot_pred(top_prediction, to_plot, save_as= None):
 
     fig, ax = plt.subplots(figsize=(7,3))
     plt.title('Model Prediction: {}'.format(top_prediction))
-    plt.ylabel('Genre')
-    plt.xlabel('Prediction Strength')
+    plt.xlabel('Predictive Probability')
     ax.set_yticklabels(np.append([0], to_plot.index), rotation=50, ha='right') #FIX ALIGNMENT ISSUE
     plt.barh(range(0,5), to_plot['score'], color='#6982A0', alpha=0.8)
 

@@ -1,37 +1,36 @@
-j pop
-electronic
-pop
-alternative
-anime
-latino
-german
-k pop
-r b soul
-french
-spoken
-soundtrack
-classical
-christian
-childrens
-hip hop rap
-singer songwriter
-reggae
-brazilian
-comedy
-holiday
-easy
-kayokyoku
-karaoke
-new
-fitness
-rock
-country
-world
-disney
-instrumental
-opera
-blues
-dance
-vocal
-enka
-jazz
+J-pop
+Electronic
+Pop
+Alternative
+Anime
+Latino
+German Pop
+K-pop
+R&B/Soul
+French Pop
+Spoken Word
+Soundtrack
+Classical
+Christian
+Children's
+Hip-Hop/Rap
+Singer/Songwriter
+Reggae
+Brazilian
+Comedy
+Holiday
+Easy Listening
+Karaoke
+New Age
+Fitness
+Rock
+Country
+World
+Disney
+Instrumental
+Opera
+Blues
+Dance
+Vocal
+Enka
+Jazz
