@@ -39,10 +39,15 @@ def upload_file():
 
         output_name = 'static/tmp/prediction{}.out'.format(img_name_sin_ext)
         with open(output_name, 'w') as f:
+            stdout = sys.stdout
+            #redirect stdout to a file so that we can save output results to file
             sys.stdout = f
             p.run_inference_on_image(img_path, labels_path, model_path)
 
         #close file here. Need to finish writing before we can read
+        #Set stdout back to what it should be
+        sys.stdout = stdout
+        os.remove(img_path)
         top_prediction, results = wp.get_results(output_name)
         plot_name = 'static/tmp/{}_plt'.format(img_name_sin_ext)
         plt_name = photo_name[:-4]+'_plt'
