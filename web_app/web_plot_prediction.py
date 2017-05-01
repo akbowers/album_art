@@ -44,7 +44,10 @@ def plot_pred(top_prediction, to_plot, save_as= None):
     fig, ax = plt.subplots(figsize=(7,3))
     plt.title('Model Prediction: {}'.format(top_prediction))
     plt.xlabel('Predictive Probability')
-    ax.set_yticklabels(np.append([0], to_plot.index), rotation=50, ha='right') #FIX ALIGNMENT ISSUE
+    # print 'YOUR GRAPH LABELS\n\n\n'
+    # print np.append([0], to_plot.index)
+    labels = [item.strip() for item in to_plot.index]
+    ax.set_yticklabels(np.append([0], labels), rotation=50, ha='right') #FIX ALIGNMENT ISSUE
     plt.barh(range(0,5), to_plot['score'], color='#6982A0', alpha=0.8)
 
     if save_as:
